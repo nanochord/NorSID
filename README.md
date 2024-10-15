@@ -34,7 +34,7 @@ The desktop client application can be built using VisualStudio.
 | d | Plays demo sound | d |
 | w##$$ | Writes value into SID register. ##=hexadecimal address 00-1B, $$=hexadecimal value | w03A1 |
 | m# | Sets the master volume. #=hexadecimal volume 0-F | mA |
-| v# | Selects voice channel. All sound operations uses the selected channel. #=1, 2 or 3 | v2 |
+| v# | Selects voice channel. All voice operations use the selected channel. #=1, 2 or 3 | v2 |
 | 0 | Gate off | 0 |
 | 1 | Gate on | 1 |
 | f####.## | Set frequency in Hz | f404.24 |
