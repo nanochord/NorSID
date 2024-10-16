@@ -27,8 +27,8 @@ The desktop client is written in C#/.NET and can be built using VisualStudio.
 @ = binary digit (0 or 1)<br />
 NN = musical note (C. D. E. F. G. A. B. D$ E$ F$ G$ A$)<br />
 UB = upper byte<br />
-LB = lower byte
-TT = transpose (-6 .. 6) (two hexadecimal digits, 2's complement)
+LB = lower byte<br />
+TT = transpose (-6 .. 6) (two hexadecimal digits, 2's complement)<br />
 FF = fine tune (-24 .. 24) (two hexadecimal digits, 2's complement)
 
 
