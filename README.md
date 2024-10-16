@@ -46,15 +46,15 @@ FF = fine tune (-24 .. 24) (two hexadecimal digits, 2's complement)
 | a#### | Set ADSR envelop. | Voice | a23AF |
 | t# | Set waveform. 0=mute, 1=noise, 2=saw, 3=triangle, 4=square | Voice | t4 |
 | Tnnnn | Set multi waveform. | Voice | T0101 |
-| p### | Set pulse width. (3 hexa digits) | Voice | p1C4 |
+| p### | Set pulse width. | Voice | p1C4 |
 | Fl | Set low pass filter mode. | Device | Fl |
 | Fh | Set high pass filter mode. | Device | Fh |
 | Fb | Set bypass filter mode. | Device | Fb |
 | F0 | Disable filters. | Device | F0 |
-| Fc### | Set filter cutoff frequency. (3 hexa digits) | Device | FcAA8 |
-| Fr# | Set filter resonance. (1 hexa digit) | Device | Fr7 |
+| Fc### | Set filter cutoff frequency. | Device | FcAA8 |
+| Fr# | Set filter resonance. | Device | Fr7 |
 | Fe@@@ | Enable filter for voices. Voice1, Voice2, Voice3 | Device | Fe001 |
-| Ff@@@ | Set filter mode. LP, BP, HP | Voice | Ff111 |
+| Ff@@@ | Set filter mode. LP, BP, HP | Device | Ff111 |
 | c# | Set control register | Voice | c2 |
 | * | All voice off | Device | * |
 | nNN#TTFF | Set frequency by note. NN=note (e.g. F$, A.); #=octave 0..7; TT=transpose -6..+6 in hex, FF=fine tune -24..+24 in hex | Voice | nC.30000 |
