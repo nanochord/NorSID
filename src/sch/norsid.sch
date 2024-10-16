@@ -3802,6 +3802,49 @@ Audio, scart, microphone, headphone&lt;p&gt;
 </deviceset>
 </devicesets>
 </library>
+<library name="ngspice-simulation" urn="urn:adsk.eagle:library:527439">
+<description>SPICE compatible library parts</description>
+<packages>
+</packages>
+<symbols>
+<symbol name="R" urn="urn:adsk.eagle:symbol:527454/4" library_version="18">
+<description>RESISTOR</description>
+<wire x1="-2.54" y1="-0.889" x2="2.54" y2="-0.889" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0.889" x2="-2.54" y2="0.889" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-0.889" x2="2.54" y2="0.889" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-0.889" x2="-2.54" y2="0.889" width="0.254" layer="94"/>
+<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<text x="-2.54" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<text x="-2.54" y="-6.35" size="1.778" layer="97">&gt;SPICEMODEL</text>
+<text x="-2.54" y="-3.81" size="1.778" layer="96">&gt;VALUE</text>
+<text x="-2.54" y="-8.89" size="1.778" layer="97">&gt;SPICEEXTRA</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="R" urn="urn:adsk.eagle:component:527474/6" prefix="R" uservalue="yes" library_version="18">
+<description>RESISTOR</description>
+<gates>
+<gate name="G$1" symbol="R" x="0" y="0"/>
+</gates>
+<devices>
+<device name="">
+<technologies>
+<technology name="">
+<attribute name="_EXTERNAL_" value="" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+<spice>
+<pinmapping spiceprefix="R">
+<pinmap gate="G$1" pin="1" pinorder="1"/>
+<pinmap gate="G$1" pin="2" pinorder="2"/>
+</pinmapping>
+</spice>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -3820,11 +3863,12 @@ Audio, scart, microphone, headphone&lt;p&gt;
 <part name="U1" library="Microcontroller" library_urn="urn:adsk.eagle:library:30049718" deviceset="ATMEGA2560-16AU" device="" package3d_urn="urn:adsk.eagle:package:10882635/5"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="P+10" library="supply1" deviceset="+5V" device=""/>
-<part name="C9" library="capacitor-wima" deviceset="C" device="2.5/2" value="100n"/>
+<part name="C4" library="capacitor-wima" deviceset="C" device="2.5/2" value="100n"/>
 <part name="Q1" library="crystal" library_urn="urn:adsk.eagle:library:204" deviceset="CRYSTAL" device="HC49U70" package3d_urn="urn:adsk.eagle:package:12079/1" value="16MHz"/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="C3" library="capacitor-wima" deviceset="C" device="2.5/2" value="1u"/>
 <part name="X1" library="con-hirschmann" library_urn="urn:adsk.eagle:library:153" deviceset="TOBU3" device="" package3d_urn="urn:adsk.eagle:package:7468/1" value="LINE OUT"/>
+<part name="R1" library="ngspice-simulation" library_urn="urn:adsk.eagle:library:527439" deviceset="R" device="" value="1K"/>
 </parts>
 <sheets>
 <sheet>
@@ -3858,7 +3902,7 @@ Audio, scart, microphone, headphone&lt;p&gt;
 <instance part="P+10" gate="1" x="-91.44" y="144.78" smashed="yes">
 <attribute name="VALUE" x="-93.98" y="144.78" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="C9" gate="G$1" x="-96.52" y="129.54" smashed="yes" rot="R180">
+<instance part="C4" gate="G$1" x="-96.52" y="129.54" smashed="yes" rot="R180">
 <attribute name="NAME" x="-98.044" y="129.159" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="-98.044" y="134.239" size="1.778" layer="96" rot="R180"/>
 </instance>
@@ -3866,16 +3910,20 @@ Audio, scart, microphone, headphone&lt;p&gt;
 <attribute name="NAME" x="-94.996" y="162.56" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="-93.98" y="160.02" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="GND2" gate="1" x="73.66" y="109.22" smashed="yes">
-<attribute name="VALUE" x="81.28" y="111.76" size="1.778" layer="96" rot="R180"/>
+<instance part="GND2" gate="1" x="73.66" y="101.6" smashed="yes">
+<attribute name="VALUE" x="71.12" y="104.14" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="C3" gate="G$1" x="83.82" y="116.84" smashed="yes" rot="R90">
 <attribute name="NAME" x="85.979" y="123.444" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="85.979" y="120.904" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="X1" gate="B" x="91.44" y="116.84" smashed="yes" rot="MR0">
-<attribute name="NAME" x="92.964" y="118.11" size="1.778" layer="95" rot="MR0"/>
-<attribute name="VALUE" x="106.68" y="114.3" size="1.778" layer="96" rot="MR0"/>
+<instance part="X1" gate="B" x="93.98" y="106.68" smashed="yes" rot="MR0">
+<attribute name="NAME" x="100.584" y="107.95" size="1.778" layer="95" rot="MR0"/>
+<attribute name="VALUE" x="109.22" y="104.14" size="1.778" layer="96" rot="MR0"/>
+</instance>
+<instance part="R1" gate="G$1" x="88.9" y="111.76" smashed="yes" rot="R90">
+<attribute name="NAME" x="86.36" y="111.76" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="86.36" y="107.95" size="1.778" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -4101,7 +4149,7 @@ Audio, scart, microphone, headphone&lt;p&gt;
 <pinref part="U1" gate="G$1" pin="GND_4"/>
 <wire x1="-86.36" y1="119.38" x2="-91.44" y2="119.38" width="0.1524" layer="91"/>
 <junction x="-91.44" y="119.38"/>
-<pinref part="C9" gate="G$1" pin="1"/>
+<pinref part="C4" gate="G$1" pin="1"/>
 <wire x1="-96.52" y1="127" x2="-91.44" y2="127" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -4166,7 +4214,7 @@ Audio, scart, microphone, headphone&lt;p&gt;
 <wire x1="-86.36" y1="132.08" x2="-91.44" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="-91.44" y1="132.08" x2="-91.44" y2="134.62" width="0.1524" layer="91"/>
 <junction x="-91.44" y="134.62"/>
-<pinref part="C9" gate="G$1" pin="2"/>
+<pinref part="C4" gate="G$1" pin="2"/>
 <wire x1="-96.52" y1="134.62" x2="-91.44" y2="134.62" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -4233,8 +4281,7 @@ Audio, scart, microphone, headphone&lt;p&gt;
 <wire x1="73.66" y1="127" x2="73.66" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="U2" gate="G$1" pin="POTY"/>
 <wire x1="73.66" y1="124.46" x2="73.66" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="73.66" y1="119.38" x2="73.66" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="73.66" y1="114.3" x2="73.66" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="119.38" x2="73.66" y2="104.14" width="0.1524" layer="91"/>
 <wire x1="60.96" y1="124.46" x2="73.66" y2="124.46" width="0.1524" layer="91"/>
 <junction x="73.66" y="124.46"/>
 <pinref part="U2" gate="G$1" pin="AUDIO_IN"/>
@@ -4246,8 +4293,8 @@ Audio, scart, microphone, headphone&lt;p&gt;
 <wire x1="73.66" y1="144.78" x2="73.66" y2="127" width="0.1524" layer="91"/>
 <junction x="73.66" y="127"/>
 <pinref part="X1" gate="B" pin="2"/>
-<wire x1="88.9" y1="114.3" x2="73.66" y2="114.3" width="0.1524" layer="91"/>
-<junction x="73.66" y="114.3"/>
+<wire x1="91.44" y1="104.14" x2="73.66" y2="104.14" width="0.1524" layer="91"/>
+<junction x="73.66" y="104.14"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -4270,8 +4317,15 @@ Audio, scart, microphone, headphone&lt;p&gt;
 </net>
 <net name="N$6" class="0">
 <segment>
-<pinref part="C3" gate="G$1" pin="2"/>
 <pinref part="X1" gate="B" pin="1"/>
+<wire x1="88.9" y1="106.68" x2="91.44" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="R1" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="N$7" class="0">
+<segment>
+<pinref part="C3" gate="G$1" pin="2"/>
+<pinref part="R1" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>
@@ -4294,6 +4348,12 @@ will not be understood (or retained) with this version.
 Since Version 8.3, EAGLE supports the association of 3D packages
 with devices in libraries, schematics, and board files. Those 3D
 packages will not be understood (or retained) with this version.
+</note>
+<note version="8.4" severity="warning">
+Since Version 8.4, EAGLE supports properties for SPICE simulation. 
+Probes in schematics and SPICE mapping objects found in parts and library devices
+will not be understood with this version. Update EAGLE to the latest version
+for full support of SPICE simulation. 
 </note>
 </compatibility>
 </eagle>
